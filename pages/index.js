@@ -3,15 +3,16 @@ import Image from "next/image";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import styles from "../styles/Home.module.css";
-import coffeeStores from "../data/coffee-stores.json";
+import coffeeStoresData from "../data/coffee-stores.json";
+import { Fragment } from "react";
 
 export async function getStaticProps(context) {
 	return {
-		props: { coffeeStores },
+		props: { coffeeStores: coffeeStoresData },
 	};
 }
 
-const Home = (props) => {
+const Home = ({ coffeeStores }) => {
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");
 	};
@@ -38,17 +39,22 @@ const Home = (props) => {
 						priority
 					/>
 				</div>
-				<div className={styles.cardLayout}>
-					{props.coffeeStores.map((store) => (
-						<Card
-							key={store.id}
-							name={store.name}
-							imgUrl={store.imgUrl}
-							href={`/coffee-store/${store.id}`}
-							className={styles.card}
-						/>
-					))}
-				</div>
+				{coffeeStores.length > 0 && (
+					<Fragment>
+						<h2 className={styles.heading2}>Toronto stores</h2>
+						<div className={styles.cardLayout}>
+							{coffeeStores.map((store) => (
+								<Card
+									key={store.id}
+									name={store.name}
+									imgUrl={store.imgUrl}
+									href={`/coffee-store/${store.id}`}
+									className={styles.card}
+								/>
+							))}
+						</div>
+					</Fragment>
+				)}
 			</main>
 		</div>
 	);
