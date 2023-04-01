@@ -3,23 +3,23 @@ import Image from "next/image";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import styles from "../styles/Home.module.css";
-import coffeeStoresData from "../data/coffee-stores.json";
 import { Fragment } from "react";
+import response from "../response.json";
 
 export async function getStaticProps(context) {
-	fetch(
-		"https://api.foursquare.com/v3/places/search?ll=43.654274227376945,-79.38941371781443&query=coffee",
-		{
-			method: "GET",
-			headers: {
-				Authorization: process.env.FOURSQUARE_API_KEY,
-			},
-		}
-	)
-		.then((response) => response.json())
-		.then((data) => console.log(data));
+	// const response = await fetch(
+	// 	"https://api.foursquare.com/v3/places/search?ll=43.654274227376945,-79.38941371781443&query=coffee",
+	// 	{
+	// 		method: "GET",
+	// 		headers: {
+	// 			Authorization: process.env.FOURSQUARE_API_KEY,
+	// 		},
+	// 	}
+	// );
+	// const data = await response.json();
+
 	return {
-		props: { coffeeStores: coffeeStoresData },
+		props: { coffeeStores: response.results },
 	};
 }
 
@@ -27,6 +27,8 @@ const Home = ({ coffeeStores }) => {
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");
 	};
+
+	console.log("data >> ", coffeeStores);
 
 	return (
 		<div className={styles.container}>
@@ -56,9 +58,12 @@ const Home = ({ coffeeStores }) => {
 						<div className={styles.cardLayout}>
 							{coffeeStores.map((store) => (
 								<Card
-									key={store.id}
+									key={store.fsq_id}
 									name={store.name}
-									imgUrl={store.imgUrl}
+									imgUrl={
+										store.imgUrl ||
+										"https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+									}
 									href={`/coffee-store/${store.id}`}
 									className={styles.card}
 								/>
