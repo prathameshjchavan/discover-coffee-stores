@@ -7,17 +7,6 @@ import { Fragment } from "react";
 import response from "../response.json";
 
 export async function getStaticProps(context) {
-	// const response = await fetch(
-	// 	"https://api.foursquare.com/v3/places/search?ll=43.654274227376945,-79.38941371781443&query=coffee",
-	// 	{
-	// 		method: "GET",
-	// 		headers: {
-	// 			Authorization: process.env.FOURSQUARE_API_KEY,
-	// 		},
-	// 	}
-	// );
-	// const data = await response.json();
-
 	return {
 		props: { coffeeStores: response.results },
 	};
@@ -27,8 +16,6 @@ const Home = ({ coffeeStores }) => {
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");
 	};
-
-	console.log("data >> ", coffeeStores);
 
 	return (
 		<div className={styles.container}>
