@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import coffeeStoresData from "../../data/coffee-stores.json";
+import coffeeStoresData from "../../data/response.json";
 import Head from "next/head";
 import styles from "../../styles/coffee-store.module.css";
 import Image from "next/image";
@@ -9,16 +9,16 @@ import cls from "classnames";
 export function getStaticProps(context) {
 	return {
 		props: {
-			coffeeStore: coffeeStoresData.find(
-				(coffeeStore) => coffeeStore.id.toString() === context.params.id
+			coffeeStore: coffeeStoresData.results.find(
+				(coffeeStore) => coffeeStore.fsq_id.toString() === context.params.id
 			),
 		},
 	};
 }
 
 export function getStaticPaths() {
-	const paths = coffeeStoresData.map((coffeeStore) => {
-		return { params: { id: coffeeStore.id.toString() } };
+	const paths = coffeeStoresData.results.map((coffeeStore) => {
+		return { params: { id: coffeeStore.fsq_id.toString() } };
 	});
 
 	return {
@@ -55,7 +55,10 @@ const CoffeeStore = ({ coffeeStore }) => {
 					</div>
 					<div className={styles.storeImgWrapper}>
 						<Image
-							src={imgUrl}
+							src={
+								imgUrl ||
+								"https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+							}
 							width={600}
 							height={360}
 							alt={name}
