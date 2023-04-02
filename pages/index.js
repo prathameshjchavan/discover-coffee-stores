@@ -8,7 +8,7 @@ import response from "../data/response.json";
 
 export async function getStaticProps(context) {
 	return {
-		props: { coffeeStores: response.results },
+		props: { coffeeStores: response },
 	};
 }
 
@@ -16,6 +16,8 @@ const Home = ({ coffeeStores }) => {
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");
 	};
+
+	console.log(coffeeStores);
 
 	return (
 		<div className={styles.container}>

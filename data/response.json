@@ -1,311 +1,304 @@
-{
-    "results": [
-        {
-            "fsq_id": "5a6b737b35f98359eed11974",
-            "categories": [
-                {
-                    "id": 13034,
-                    "name": "Café",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13035,
-                    "name": "Coffee Shop",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13065,
-                    "name": "Restaurant",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
-                        "suffix": ".png"
-                    }
-                }
-            ],
-            "chains": [],
-            "distance": 120,
-            "geocodes": {
-                "drop_off": {
-                    "latitude": 43.654428,
-                    "longitude": -79.390869
-                },
-                "main": {
-                    "latitude": 43.654316,
-                    "longitude": -79.390843
-                },
-                "roof": {
-                    "latitude": 43.654316,
-                    "longitude": -79.390843
+[
+    {
+        "fsq_id": "5a6b737b35f98359eed11974",
+        "categories": [
+            {
+                "id": 13034,
+                "name": "Café",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                    "suffix": ".png"
                 }
             },
-            "link": "/v3/places/5a6b737b35f98359eed11974",
-            "location": {
-                "address": "281 Dundas St W",
-                "country": "CA",
-                "cross_street": "St Patrick And Dundas St W",
-                "formatted_address": "281 Dundas St W (St Patrick And Dundas St W), Toronto ON M5T 1G1",
-                "locality": "Toronto",
-                "postcode": "M5T 1G1",
-                "region": "ON"
-            },
-            "name": "The Library Specialty Coffee",
-            "related_places": {},
-            "timezone": "America/Toronto"
-        },
-        {
-            "fsq_id": "4f513029e4b07c3382c9fdb9",
-            "categories": [
-                {
-                    "id": 13145,
-                    "name": "Fast Food Restaurant",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
-                        "suffix": ".png"
-                    }
-                }
-            ],
-            "chains": [],
-            "distance": 33,
-            "geocodes": {
-                "main": {
-                    "latitude": 43.654736,
-                    "longitude": -79.389695
-                },
-                "roof": {
-                    "latitude": 43.654736,
-                    "longitude": -79.389695
+            {
+                "id": 13035,
+                "name": "Coffee Shop",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                    "suffix": ".png"
                 }
             },
-            "link": "/v3/places/4f513029e4b07c3382c9fdb9",
-            "location": {
-                "address": "250 Dundas St W",
-                "country": "CA",
-                "cross_street": "Simcoe Street",
-                "formatted_address": "250 Dundas St W (Simcoe Street), Toronto ON M5T 2Z5",
-                "locality": "Toronto",
-                "postcode": "M5T 2Z5",
-                "region": "ON"
-            },
-            "name": "Cafe Plenty",
-            "related_places": {},
-            "timezone": "America/Toronto"
-        },
-        {
-            "fsq_id": "59f784dd28122f14f9d5d63d",
-            "categories": [
-                {
-                    "id": 13034,
-                    "name": "Café",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13035,
-                    "name": "Coffee Shop",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13065,
-                    "name": "Restaurant",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
-                        "suffix": ".png"
-                    }
+            {
+                "id": 13065,
+                "name": "Restaurant",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                    "suffix": ".png"
                 }
-            ],
-            "chains": [],
-            "distance": 438,
-            "geocodes": {
-                "main": {
-                    "latitude": 43.650258,
-                    "longitude": -79.388748
-                },
-                "roof": {
-                    "latitude": 43.650258,
-                    "longitude": -79.388748
-                }
-            },
-            "link": "/v3/places/59f784dd28122f14f9d5d63d",
-            "location": {
-                "address": "245 Queen St W",
-                "country": "CA",
-                "cross_street": "at St Patrick St",
-                "formatted_address": "245 Queen St W (at St Patrick St), Toronto ON M5V 1Z4",
-                "locality": "Toronto",
-                "postcode": "M5V 1Z4",
-                "region": "ON"
-            },
-            "name": "HotBlack Coffee",
-            "related_places": {},
-            "timezone": "America/Toronto"
-        },
-        {
-            "fsq_id": "5a81ae339deb7d369fa7f146",
-            "categories": [
-                {
-                    "id": 13035,
-                    "name": "Coffee Shop",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
-                        "suffix": ".png"
-                    }
-                }
-            ],
-            "chains": [],
-            "distance": 684,
-            "geocodes": {
-                "drop_off": {
-                    "latitude": 43.658745,
-                    "longitude": -79.383777
-                },
-                "main": {
-                    "latitude": 43.658979,
-                    "longitude": -79.383825
-                },
-                "roof": {
-                    "latitude": 43.658979,
-                    "longitude": -79.383825
-                }
-            },
-            "link": "/v3/places/5a81ae339deb7d369fa7f146",
-            "location": {
-                "address": "44 Gerrard St W",
-                "country": "CA",
-                "cross_street": "Yonge St",
-                "formatted_address": "44 Gerrard St W (Yonge St), Toronto ON M5G 2K2",
-                "locality": "Toronto",
-                "postcode": "M5G 2K2",
-                "region": "ON"
-            },
-            "name": "Hailed Coffee",
-            "related_places": {},
-            "timezone": "America/Toronto"
-        },
-        {
-            "fsq_id": "537d4d6d498ec171ba22e7fe",
-            "categories": [
-                {
-                    "id": 13034,
-                    "name": "Café",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13035,
-                    "name": "Coffee Shop",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13065,
-                    "name": "Restaurant",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
-                        "suffix": ".png"
-                    }
-                }
-            ],
-            "chains": [],
-            "distance": 552,
-            "geocodes": {
-                "drop_off": {
-                    "latitude": 43.65839,
-                    "longitude": -79.385407
-                },
-                "main": {
-                    "latitude": 43.658525,
-                    "longitude": -79.385436
-                },
-                "roof": {
-                    "latitude": 43.658525,
-                    "longitude": -79.385436
-                }
-            },
-            "link": "/v3/places/537d4d6d498ec171ba22e7fe",
-            "location": {
-                "address": "84 Gerrard St W",
-                "country": "CA",
-                "cross_street": "Gerrard & LaPlante",
-                "formatted_address": "84 Gerrard St W (Gerrard & LaPlante), Toronto ON M5G 1J5",
-                "locality": "Toronto",
-                "postcode": "M5G 1J5",
-                "region": "ON"
-            },
-            "name": "Jimmy's Coffee",
-            "related_places": {},
-            "timezone": "America/Toronto"
-        },
-        {
-            "fsq_id": "5b6c842bc36588002c80a934",
-            "categories": [
-                {
-                    "id": 13034,
-                    "name": "Café",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
-                        "suffix": ".png"
-                    }
-                },
-                {
-                    "id": 13065,
-                    "name": "Restaurant",
-                    "icon": {
-                        "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
-                        "suffix": ".png"
-                    }
-                }
-            ],
-            "chains": [],
-            "distance": 694,
-            "geocodes": {
-                "main": {
-                    "latitude": 43.648724,
-                    "longitude": -79.385137
-                },
-                "roof": {
-                    "latitude": 43.648724,
-                    "longitude": -79.385137
-                }
-            },
-            "link": "/v3/places/5b6c842bc36588002c80a934",
-            "location": {
-                "address": "165 University Ave",
-                "country": "CA",
-                "cross_street": "Adelaide St W",
-                "formatted_address": "165 University Ave (Adelaide St W), Toronto ON M5H 3B8",
-                "locality": "Toronto",
-                "postcode": "M5H 3B8",
-                "region": "ON"
-            },
-            "name": "Cafe Landwer",
-            "related_places": {},
-            "timezone": "America/Toronto"
-        }
-    ],
-    "context": {
-        "geo_bounds": {
-            "circle": {
-                "center": {
-                    "latitude": 43.654274227376945,
-                    "longitude": -79.38941371781443
-                },
-                "radius": 22000
             }
-        }
+        ],
+        "chains": [],
+        "distance": 120,
+        "geocodes": {
+            "drop_off": {
+                "latitude": 43.654428,
+                "longitude": -79.390869
+            },
+            "main": {
+                "latitude": 43.654316,
+                "longitude": -79.390843
+            },
+            "roof": {
+                "latitude": 43.654316,
+                "longitude": -79.390843
+            }
+        },
+        "link": "/v3/places/5a6b737b35f98359eed11974",
+        "location": {
+            "address": "281 Dundas St W",
+            "country": "CA",
+            "cross_street": "St Patrick And Dundas St W",
+            "formatted_address": "281 Dundas St W (St Patrick And Dundas St W), Toronto ON M5T 1G1",
+            "locality": "Toronto",
+            "postcode": "M5T 1G1",
+            "region": "ON"
+        },
+        "name": "The Library Specialty Coffee",
+        "related_places": {},
+        "timezone": "America/Toronto",
+        "imgUrl": "https://images.unsplash.com/photo-1453614512568-c4024d13c247?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzA3NDJ8MHwxfHNlYXJjaHwxfHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTY4MDQ0NzEyMw&ixlib=rb-4.0.3&q=80&w=400"
+    },
+    {
+        "fsq_id": "4f513029e4b07c3382c9fdb9",
+        "categories": [
+            {
+                "id": 13145,
+                "name": "Fast Food Restaurant",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_",
+                    "suffix": ".png"
+                }
+            }
+        ],
+        "chains": [],
+        "distance": 33,
+        "geocodes": {
+            "main": {
+                "latitude": 43.654736,
+                "longitude": -79.389695
+            },
+            "roof": {
+                "latitude": 43.654736,
+                "longitude": -79.389695
+            }
+        },
+        "link": "/v3/places/4f513029e4b07c3382c9fdb9",
+        "location": {
+            "address": "250 Dundas St W",
+            "country": "CA",
+            "cross_street": "Simcoe Street",
+            "formatted_address": "250 Dundas St W (Simcoe Street), Toronto ON M5T 2Z5",
+            "locality": "Toronto",
+            "postcode": "M5T 2Z5",
+            "region": "ON"
+        },
+        "name": "Cafe Plenty",
+        "related_places": {},
+        "timezone": "America/Toronto",
+        "imgUrl": "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzA3NDJ8MHwxfHNlYXJjaHwyfHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTY4MDQ0NzEyMw&ixlib=rb-4.0.3&q=80&w=400"
+    },
+    {
+        "fsq_id": "59f784dd28122f14f9d5d63d",
+        "categories": [
+            {
+                "id": 13034,
+                "name": "Café",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                    "suffix": ".png"
+                }
+            },
+            {
+                "id": 13035,
+                "name": "Coffee Shop",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                    "suffix": ".png"
+                }
+            },
+            {
+                "id": 13065,
+                "name": "Restaurant",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                    "suffix": ".png"
+                }
+            }
+        ],
+        "chains": [],
+        "distance": 438,
+        "geocodes": {
+            "main": {
+                "latitude": 43.650258,
+                "longitude": -79.388748
+            },
+            "roof": {
+                "latitude": 43.650258,
+                "longitude": -79.388748
+            }
+        },
+        "link": "/v3/places/59f784dd28122f14f9d5d63d",
+        "location": {
+            "address": "245 Queen St W",
+            "country": "CA",
+            "cross_street": "at St Patrick St",
+            "formatted_address": "245 Queen St W (at St Patrick St), Toronto ON M5V 1Z4",
+            "locality": "Toronto",
+            "postcode": "M5V 1Z4",
+            "region": "ON"
+        },
+        "name": "HotBlack Coffee",
+        "related_places": {},
+        "timezone": "America/Toronto",
+        "imgUrl": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzA3NDJ8MHwxfHNlYXJjaHwzfHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTY4MDQ0NzEyMw&ixlib=rb-4.0.3&q=80&w=400"
+    },
+    {
+        "fsq_id": "5a81ae339deb7d369fa7f146",
+        "categories": [
+            {
+                "id": 13035,
+                "name": "Coffee Shop",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                    "suffix": ".png"
+                }
+            }
+        ],
+        "chains": [],
+        "distance": 684,
+        "geocodes": {
+            "drop_off": {
+                "latitude": 43.658745,
+                "longitude": -79.383777
+            },
+            "main": {
+                "latitude": 43.658979,
+                "longitude": -79.383825
+            },
+            "roof": {
+                "latitude": 43.658979,
+                "longitude": -79.383825
+            }
+        },
+        "link": "/v3/places/5a81ae339deb7d369fa7f146",
+        "location": {
+            "address": "44 Gerrard St W",
+            "country": "CA",
+            "cross_street": "Yonge St",
+            "formatted_address": "44 Gerrard St W (Yonge St), Toronto ON M5G 2K2",
+            "locality": "Toronto",
+            "postcode": "M5G 2K2",
+            "region": "ON"
+        },
+        "name": "Hailed Coffee",
+        "related_places": {},
+        "timezone": "America/Toronto",
+        "imgUrl": "https://images.unsplash.com/photo-1525193612562-0ec53b0e5d7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzA3NDJ8MHwxfHNlYXJjaHw0fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTY4MDQ0NzEyMw&ixlib=rb-4.0.3&q=80&w=400"
+    },
+    {
+        "fsq_id": "537d4d6d498ec171ba22e7fe",
+        "categories": [
+            {
+                "id": 13034,
+                "name": "Café",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                    "suffix": ".png"
+                }
+            },
+            {
+                "id": 13035,
+                "name": "Coffee Shop",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_",
+                    "suffix": ".png"
+                }
+            },
+            {
+                "id": 13065,
+                "name": "Restaurant",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                    "suffix": ".png"
+                }
+            }
+        ],
+        "chains": [],
+        "distance": 552,
+        "geocodes": {
+            "drop_off": {
+                "latitude": 43.65839,
+                "longitude": -79.385407
+            },
+            "main": {
+                "latitude": 43.658525,
+                "longitude": -79.385436
+            },
+            "roof": {
+                "latitude": 43.658525,
+                "longitude": -79.385436
+            }
+        },
+        "link": "/v3/places/537d4d6d498ec171ba22e7fe",
+        "location": {
+            "address": "84 Gerrard St W",
+            "country": "CA",
+            "cross_street": "Gerrard & LaPlante",
+            "formatted_address": "84 Gerrard St W (Gerrard & LaPlante), Toronto ON M5G 1J5",
+            "locality": "Toronto",
+            "postcode": "M5G 1J5",
+            "region": "ON"
+        },
+        "name": "Jimmy's Coffee",
+        "related_places": {},
+        "timezone": "America/Toronto",
+        "imgUrl": "https://images.unsplash.com/photo-1498804103079-a6351b050096?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzA3NDJ8MHwxfHNlYXJjaHw1fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTY4MDQ0NzEyMw&ixlib=rb-4.0.3&q=80&w=400"
+    },
+    {
+        "fsq_id": "5b6c842bc36588002c80a934",
+        "categories": [
+            {
+                "id": 13034,
+                "name": "Café",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/cafe_",
+                    "suffix": ".png"
+                }
+            },
+            {
+                "id": 13065,
+                "name": "Restaurant",
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/default_",
+                    "suffix": ".png"
+                }
+            }
+        ],
+        "chains": [],
+        "distance": 694,
+        "geocodes": {
+            "main": {
+                "latitude": 43.648724,
+                "longitude": -79.385137
+            },
+            "roof": {
+                "latitude": 43.648724,
+                "longitude": -79.385137
+            }
+        },
+        "link": "/v3/places/5b6c842bc36588002c80a934",
+        "location": {
+            "address": "165 University Ave",
+            "country": "CA",
+            "cross_street": "Adelaide St W",
+            "formatted_address": "165 University Ave (Adelaide St W), Toronto ON M5H 3B8",
+            "locality": "Toronto",
+            "postcode": "M5H 3B8",
+            "region": "ON"
+        },
+        "name": "Cafe Landwer",
+        "related_places": {},
+        "timezone": "America/Toronto",
+        "imgUrl": "https://images.unsplash.com/photo-1445116572660-236099ec97a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzA3NDJ8MHwxfHNlYXJjaHw2fHxjb2ZmZWUlMjBzaG9wfGVufDB8fHx8MTY4MDQ0NzEyMw&ixlib=rb-4.0.3&q=80&w=400"
     }
-}
+]
