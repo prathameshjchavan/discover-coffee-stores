@@ -34,7 +34,7 @@ const CoffeeStore = ({ coffeeStore }) => {
 		return <div>Loading...</div>;
 	}
 
-	const { location, name, neighbourhood, imgUrl } = coffeeStore;
+	const { location, name, imgUrl } = coffeeStore;
 
 	const handleUpvoteButton = () => {
 		console.log("handle upvote");
@@ -76,7 +76,7 @@ const CoffeeStore = ({ coffeeStore }) => {
 						/>
 						<p className={styles.text}>{location.formatted_address}</p>
 					</div>
-					{location.neighborhood && (
+					{(location.neighborhood || location.cross_street) && (
 						<div className={styles.iconWrapper}>
 							<Image
 								src="/static/icons/nearMe.svg"
@@ -84,7 +84,9 @@ const CoffeeStore = ({ coffeeStore }) => {
 								height={24}
 								alt="near me"
 							/>
-							<p className={styles.text}>{location.neighborhood}</p>
+							<p className={styles.text}>
+								{location.neighborhood || location.cross_street}
+							</p>
 						</div>
 					)}
 
