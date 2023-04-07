@@ -3,9 +3,10 @@ import Image from "next/image";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import styles from "../styles/Home.module.css";
-import { Fragment } from "react";
+import { useCallback, useEffect } from "react";
 import response from "../data/response.json";
 import useTrackLocation from "../hooks/use-track-location";
+import { fetchCoffeeStores } from "../lib/coffee-stores";
 
 export async function getStaticProps(context) {
 	return {
@@ -16,14 +17,28 @@ export async function getStaticProps(context) {
 const Home = ({ coffeeStores }) => {
 	const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
 		useTrackLocation();
-	console.log({ latLong, locationErrorMsg });
 
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");
 		handleTrackLocation();
 	};
 
-	console.log(coffeeStores);
+	const fetchCoffeeStoresByCoords = useCallback(async (latLong, limit) => {
+		try {
+			const fetchedCoffeeStores = await fetchCoffeeStores(latLong, limit);
+			console.log({ fetchedCoffeeStores });
+			// set coffee stores
+		} catch (error) {
+			// set error
+			console.log({ error });
+		}
+	}, []);
+
+	useEffect(() => {
+		if (latLong) {
+			fetchCoffeeStoresByCoords(latLong, 30);
+		}
+	}, [latLong, fetchCoffeeStoresByCoords]);
 
 	return (
 		<div className={styles.container}>
