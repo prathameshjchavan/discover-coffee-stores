@@ -9,13 +9,9 @@ const IBMPlexSans = localFont({
 		{ path: "../public/fonts/IBMPlexSans-SemiBold.ttf" },
 	],
 });
+export const StoreContext = createContext();
 
-const StoreContext = createContext();
-const initialState = {
-	latLong: "",
-	coffeeStores: [],
-};
-const ACTION_TYPES = {
+export const ACTION_TYPES = {
 	SET_LAT_LONG: "SET_LAT_LONG",
 	SET_COFFEE_STORES: "SET_COFFEE_STORES",
 };
@@ -31,14 +27,27 @@ const storeReducer = (state, action) => {
 	}
 };
 
-function MyApp({ Component, pageProps }) {
+const StoreProvider = ({ children }) => {
+	const initialState = {
+		latLong: "",
+		coffeeStores: [],
+	};
+
 	const [state, dispatch] = useReducer(storeReducer, initialState);
 
 	return (
+		<StoreContext.Provider value={{ state, dispatch }}>
+			{children}
+		</StoreContext.Provider>
+	);
+};
+
+function MyApp({ Component, pageProps }) {
+	return (
 		<div className={IBMPlexSans.className}>
-			<StoreContext.Provider value={{ state, dispatch }}>
+			<StoreProvider>
 				<Component {...pageProps} />
-			</StoreContext.Provider>
+			</StoreProvider>
 		</div>
 	);
 }

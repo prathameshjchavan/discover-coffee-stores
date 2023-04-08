@@ -3,10 +3,11 @@ import Image from "next/image";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import styles from "../styles/Home.module.css";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import response from "../data/response.json";
 import useTrackLocation from "../hooks/use-track-location";
 import { fetchCoffeeStores } from "../lib/coffee-stores";
+import { ACTION_TYPES, StoreContext } from "./_app";
 
 export async function getStaticProps(context) {
 	return {
@@ -15,10 +16,11 @@ export async function getStaticProps(context) {
 }
 
 const Home = ({ coffeeStores }) => {
-	const [coffeeStoresNearMe, setCoffeeStoresNearMe] = useState([]);
 	const [coffeeStoreError, setCoffeeStoreError] = useState(null);
-	const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
+	const { handleTrackLocation, locationErrorMsg, isFindingLocation } =
 		useTrackLocation();
+	const { dispatch, state } = useContext(StoreContext);
+	const { coffeeStores: coffeeStoresNearMe, latLong } = state;
 
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");
@@ -28,7 +30,12 @@ const Home = ({ coffeeStores }) => {
 	const fetchCoffeeStoresByCoords = useCallback(async (latLong, limit) => {
 		try {
 			const fetchedCoffeeStores = await fetchCoffeeStores(latLong, limit);
-			setCoffeeStoresNearMe(fetchedCoffeeStores);
+			dispatch({
+				type: ACTION_TYPES.SET_COFFEE_STORES,
+				payload: {
+					coffeeStores: fetchedCoffeeStores,
+				},
+			});
 		} catch (error) {
 			setCoffeeStoreError(error.message);
 		}
