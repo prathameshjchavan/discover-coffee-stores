@@ -3,7 +3,7 @@ import Image from "next/image";
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 import styles from "../styles/Home.module.css";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import response from "../data/response.json";
 import useTrackLocation from "../hooks/use-track-location";
 import { fetchCoffeeStores } from "../lib/coffee-stores";
@@ -15,6 +15,8 @@ export async function getStaticProps(context) {
 }
 
 const Home = ({ coffeeStores }) => {
+	const [coffeeStoresNearMe, setCoffeeStoresNearMe] = useState([]);
+	const [coffeeStoreError, setCoffeeStoreError] = useState(null);
 	const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
 		useTrackLocation();
 
@@ -26,11 +28,9 @@ const Home = ({ coffeeStores }) => {
 	const fetchCoffeeStoresByCoords = useCallback(async (latLong, limit) => {
 		try {
 			const fetchedCoffeeStores = await fetchCoffeeStores(latLong, limit);
-			console.log({ fetchedCoffeeStores });
-			// set coffee stores
+			setCoffeeStoresNearMe(fetchedCoffeeStores);
 		} catch (error) {
-			// set error
-			console.log({ error });
+			setCoffeeStoreError(error.message);
 		}
 	}, []);
 
@@ -54,6 +54,7 @@ const Home = ({ coffeeStores }) => {
 					handleOnClick={handleOnBannerBtnClick}
 				/>
 				{locationErrorMsg && <p>Something went wrong: {locationErrorMsg}</p>}
+				{coffeeStoreError && <p>Something went wrong: {coffeeStoreError}</p>}
 				<div className={styles.heroImage}>
 					<Image
 						src="/static/hero-image.png"
@@ -63,6 +64,25 @@ const Home = ({ coffeeStores }) => {
 						priority
 					/>
 				</div>
+				{coffeeStoresNearMe.length > 0 && (
+					<div className={styles.sectionWrapper}>
+						<h2 className={styles.heading2}>Stores near me</h2>
+						<div className={styles.cardLayout}>
+							{coffeeStoresNearMe.map((store) => (
+								<Card
+									key={store.fsq_id}
+									name={store.name}
+									imgUrl={
+										store.imgUrl ||
+										"https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+									}
+									href={`/coffee-store/${store.fsq_id}`}
+									className={styles.card}
+								/>
+							))}
+						</div>
+					</div>
+				)}
 				{coffeeStores.length > 0 && (
 					<div className={styles.sectionWrapper}>
 						<h2 className={styles.heading2}>Toronto stores</h2>
