@@ -10,7 +10,7 @@ export function getStaticProps(context) {
 	return {
 		props: {
 			coffeeStore: coffeeStoresData.find(
-				(coffeeStore) => coffeeStore.fsq_id.toString() === context.params.id
+				(coffeeStore) => coffeeStore.id.toString() === context.params.id
 			),
 		},
 	};
@@ -18,7 +18,7 @@ export function getStaticProps(context) {
 
 export function getStaticPaths() {
 	const paths = coffeeStoresData.map((coffeeStore) => {
-		return { params: { id: coffeeStore.fsq_id.toString() } };
+		return { params: { id: coffeeStore.id.toString() } };
 	});
 
 	return {
