@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 import "../styles/globals.css";
+import { createContext } from "react";
 
 const IBMPlexSans = localFont({
 	src: [
@@ -9,10 +10,18 @@ const IBMPlexSans = localFont({
 	],
 });
 
+const StoreContext = createContext();
+const initialState = {
+	latLong: "",
+	coffeeStores: [],
+};
+
 function MyApp({ Component, pageProps }) {
 	return (
 		<div className={IBMPlexSans.className}>
-			<Component {...pageProps} />
+			<StoreContext.Provider value={initialState}>
+				<Component {...pageProps} />
+			</StoreContext.Provider>
 		</div>
 	);
 }

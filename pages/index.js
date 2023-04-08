@@ -19,7 +19,6 @@ const Home = ({ coffeeStores }) => {
 	const [coffeeStoreError, setCoffeeStoreError] = useState(null);
 	const { handleTrackLocation, latLong, locationErrorMsg, isFindingLocation } =
 		useTrackLocation();
-	console.log(coffeeStoresNearMe);
 
 	const handleOnBannerBtnClick = () => {
 		console.log("Hi banner button");

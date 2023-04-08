@@ -7,11 +7,12 @@ import Image from "next/image";
 import cls from "classnames";
 
 export function getStaticProps(context) {
+	const findCoffeeStoreById = coffeeStoresData.find(
+		(coffeeStore) => coffeeStore.id.toString() === context.params.id
+	);
 	return {
 		props: {
-			coffeeStore: coffeeStoresData.find(
-				(coffeeStore) => coffeeStore.id.toString() === context.params.id
-			),
+			coffeeStore: findCoffeeStoreById ? findCoffeeStoreById : {},
 		},
 	};
 }
@@ -74,9 +75,9 @@ const CoffeeStore = ({ coffeeStore }) => {
 							height={24}
 							alt="address"
 						/>
-						<p className={styles.text}>{location.formatted_address}</p>
+						<p className={styles.text}>{location?.formatted_address}</p>
 					</div>
-					{(location.neighborhood || location.cross_street) && (
+					{(location?.neighborhood || location?.cross_street) && (
 						<div className={styles.iconWrapper}>
 							<Image
 								src="/static/icons/nearMe.svg"
@@ -85,7 +86,7 @@ const CoffeeStore = ({ coffeeStore }) => {
 								alt="near me"
 							/>
 							<p className={styles.text}>
-								{location.neighborhood || location.cross_street}
+								{location?.neighborhood || location?.cross_street}
 							</p>
 						</div>
 					)}
