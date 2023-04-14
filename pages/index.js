@@ -4,13 +4,14 @@ import Banner from "../components/Banner";
 import Card from "../components/Card";
 import styles from "../styles/Home.module.css";
 import { useCallback, useContext, useEffect, useState } from "react";
-import response from "../data/response.json";
 import useTrackLocation from "../hooks/use-track-location";
 import { ACTION_TYPES, StoreContext } from "../store/store-context";
+import { fetchCoffeeStores } from "../lib/coffee-stores";
 
 export async function getStaticProps(context) {
+	const coffeeStores = await fetchCoffeeStores();
 	return {
-		props: { coffeeStores: response },
+		props: { coffeeStores },
 	};
 }
 
@@ -29,7 +30,7 @@ const Home = ({ coffeeStores }) => {
 	const fetchCoffeeStoresByCoords = useCallback(async (latLong, limit) => {
 		try {
 			const response = await fetch(
-				`/api/getCoffeeStoresByLocation?latLong=${latLong}&limit=30`
+				`/api/getCoffeeStoresByLocation?latLong=${latLong}&limit=${limit}`
 			);
 			const coffeeStores = await response.json();
 			dispatch({
