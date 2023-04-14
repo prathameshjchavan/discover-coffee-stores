@@ -6,7 +6,6 @@ import styles from "../styles/Home.module.css";
 import { useCallback, useContext, useEffect, useState } from "react";
 import response from "../data/response.json";
 import useTrackLocation from "../hooks/use-track-location";
-import { fetchCoffeeStores } from "../lib/coffee-stores";
 import { ACTION_TYPES, StoreContext } from "../store/store-context";
 
 export async function getStaticProps(context) {
@@ -29,13 +28,17 @@ const Home = ({ coffeeStores }) => {
 
 	const fetchCoffeeStoresByCoords = useCallback(async (latLong, limit) => {
 		try {
-			const fetchedCoffeeStores = await fetchCoffeeStores(latLong, limit);
+			const response = await fetch(
+				`/api/getCoffeeStoresByLocation?latLong=${latLong}&limit=30`
+			);
+			const coffeeStores = await response.json();
 			dispatch({
 				type: ACTION_TYPES.SET_COFFEE_STORES,
 				payload: {
-					coffeeStores: fetchedCoffeeStores,
+					coffeeStores,
 				},
 			});
+			setCoffeeStoreError("");
 		} catch (error) {
 			setCoffeeStoreError(error.message);
 		}
