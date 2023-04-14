@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import coffeeStoresData from "../../data/response.json";
 import Head from "next/head";
 import styles from "../../styles/coffee-store.module.css";
 import Image from "next/image";
 import cls from "classnames";
+import { fetchCoffeeStores } from "../../lib/coffee-stores";
 
-export function getStaticProps(context) {
-	const findCoffeeStoreById = coffeeStoresData.find(
+export async function getStaticProps(context) {
+	const coffeeStores = await fetchCoffeeStores();
+	const findCoffeeStoreById = coffeeStores.find(
 		(coffeeStore) => coffeeStore.id.toString() === context.params.id
 	);
 	return {
@@ -17,8 +18,9 @@ export function getStaticProps(context) {
 	};
 }
 
-export function getStaticPaths() {
-	const paths = coffeeStoresData.map((coffeeStore) => {
+export async function getStaticPaths() {
+	const coffeeStores = await fetchCoffeeStores();
+	const paths = coffeeStores.map((coffeeStore) => {
 		return { params: { id: coffeeStore.id.toString() } };
 	});
 
