@@ -10,42 +10,52 @@ const createCoffeeStore = async (req, res) => {
 		const { id, name, neighbourhood, address, imgUrl, voting } = req.body;
 
 		try {
-			// find a record
-			const findCoffeeStoreRecords = await table
-				.select({ filterByFormula: `id=${id}` })
-				.firstPage();
+			if (id) {
+				// find a record
+				const findCoffeeStoreRecords = await table
+					.select({ filterByFormula: `id=${id}` })
+					.firstPage();
 
-			if (findCoffeeStoreRecords.length !== 0) {
-				const records = findCoffeeStoreRecords.map((record) => ({
-					...record.fields,
-				}));
+				if (findCoffeeStoreRecords.length !== 0) {
+					const records = findCoffeeStoreRecords.map((record) => ({
+						...record.fields,
+					}));
 
-				res.json(records);
+					res.json(records);
+				} else {
+					if (name) {
+						// create a record
+						const createdRecords = await table.create([
+							{
+								fields: {
+									id,
+									name,
+									address,
+									neighbourhood,
+									voting,
+									imgUrl,
+								},
+							},
+						]);
+
+						const records = createdRecords.map((record) => ({
+							...record.fields,
+						}));
+
+						res.json({ message: "create a record", records });
+					} else {
+						res.status(400);
+						res.json({ message: "Name is missing" });
+					}
+				}
 			} else {
-				// create a record
-				const createdRecords = await table.create([
-					{
-						fields: {
-							id,
-							name,
-							address,
-							neighbourhood,
-							voting,
-							imgUrl,
-						},
-					},
-				]);
-
-				const records = createdRecords.map((record) => ({
-					...record.fields,
-				}));
-
-				res.json({ message: "create a record", records });
+				res.status(400);
+				res.json({ message: "Id is missing" });
 			}
 		} catch (error) {
-			console.error("Error finding store", error);
+			console.error("Error creating or finding a store", error);
 			res.status(500);
-			res.json({ message: "Error finding store", error });
+			res.json({ message: "Error creating or finding a store", error });
 		}
 	} else {
 		res.json({ message: "method is GET" });
