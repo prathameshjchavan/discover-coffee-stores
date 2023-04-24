@@ -5,6 +5,9 @@ import styles from "../../styles/coffee-store.module.css";
 import Image from "next/image";
 import cls from "classnames";
 import { fetchCoffeeStores } from "../../lib/coffee-stores";
+import { useContext, useEffect, useState } from "react";
+import { StoreContext } from "../../store/store-context";
+import { isEmpty } from "../../utils";
 
 export async function getStaticProps(context) {
 	const coffeeStores = await fetchCoffeeStores();
@@ -30,12 +33,29 @@ export async function getStaticPaths() {
 	};
 }
 
-const CoffeeStore = ({ coffeeStore }) => {
+const CoffeeStore = (props) => {
 	const router = useRouter();
 
 	if (router.isFallback) {
 		return <div>Loading...</div>;
 	}
+
+	const id = router.query.id;
+	const [coffeeStore, setCoffeeStore] = useState(props.coffeeStore);
+	const {
+		state: { coffeeStores },
+	} = useContext(StoreContext);
+
+	useEffect(() => {
+		if (isEmpty(props.coffeeStore)) {
+			if (coffeeStores.length > 0) {
+				const findCoffeeStoreById = coffeeStores.find(
+					(coffeeStore) => coffeeStore.id.toString() === id
+				);
+				setCoffeeStore(findCoffeeStoreById);
+			}
+		}
+	}, [id]);
 
 	const { location, name, imgUrl } = coffeeStore;
 
