@@ -35,11 +35,6 @@ export async function getStaticPaths() {
 
 const CoffeeStore = (props) => {
 	const router = useRouter();
-
-	if (router.isFallback) {
-		return <div>Loading...</div>;
-	}
-
 	const id = router.query.id;
 	const [coffeeStore, setCoffeeStore] = useState(props.coffeeStore);
 	const {
@@ -83,19 +78,23 @@ const CoffeeStore = (props) => {
 					handleCreateCoffeeStore(coffeeStoreFromContext);
 				}
 			}
+		} else {
+			handleCreateCoffeeStore(props.coffeeStore);
 		}
 	}, [id]);
-
-	const { location, name, imgUrl } = coffeeStore;
 
 	const handleUpvoteButton = () => {
 		console.log("handle upvote");
 	};
 
+	if (router.isFallback) {
+		return <div>Loading...</div>;
+	}
+
 	return (
 		<div className={styles.layout}>
 			<Head>
-				<title>{name}</title>
+				<title>{coffeeStore?.name}</title>
 			</Head>
 			<div className={styles.container}>
 				<div className={styles.col1}>
@@ -103,17 +102,17 @@ const CoffeeStore = (props) => {
 						<Link href="/">← Back to home</Link>
 					</div>
 					<div className={styles.nameWrapper}>
-						<h1 className={styles.name}>{name}</h1>
+						<h1 className={styles.name}>{coffeeStore?.name}</h1>
 					</div>
 					<div className={styles.storeImgWrapper}>
 						<Image
 							src={
-								imgUrl ||
+								coffeeStore?.imgUrl ||
 								"https://images.unsplash.com/photo-1504753793650-d4a2b783c15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
 							}
 							width={600}
 							height={360}
-							alt={name}
+							alt={coffeeStore?.name || "store image"}
 							className={styles.storeImg}
 						/>
 					</div>
@@ -126,9 +125,12 @@ const CoffeeStore = (props) => {
 							height={24}
 							alt="address"
 						/>
-						<p className={styles.text}>{location?.formatted_address}</p>
+						<p className={styles.text}>
+							{coffeeStore?.location?.formatted_address}
+						</p>
 					</div>
-					{(location?.neighborhood || location?.cross_street) && (
+					{(coffeeStore?.location?.neighborhood ||
+						coffeeStore?.location?.cross_street) && (
 						<div className={styles.iconWrapper}>
 							<Image
 								src="/static/icons/nearMe.svg"
@@ -137,7 +139,8 @@ const CoffeeStore = (props) => {
 								alt="near me"
 							/>
 							<p className={styles.text}>
-								{location?.neighborhood || location?.cross_street}
+								{coffeeStore?.location?.neighborhood ||
+									coffeeStore?.location?.cross_street}
 							</p>
 						</div>
 					)}
