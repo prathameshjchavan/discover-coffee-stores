@@ -37,6 +37,7 @@ const CoffeeStore = (props) => {
 	const router = useRouter();
 	const id = router.query.id;
 	const [coffeeStore, setCoffeeStore] = useState(props.coffeeStore);
+	const [votingCount, setVotingCount] = useState(1);
 	const {
 		state: { coffeeStores },
 	} = useContext(StoreContext);
@@ -85,6 +86,7 @@ const CoffeeStore = (props) => {
 
 	const handleUpvoteButton = () => {
 		console.log("handle upvote");
+		setVotingCount((count) => count + 1);
 	};
 
 	if (router.isFallback) {
@@ -152,7 +154,7 @@ const CoffeeStore = (props) => {
 							height={24}
 							alt="vote"
 						/>
-						<p className={styles.text}>1</p>
+						<p className={styles.text}>{votingCount}</p>
 					</div>
 					<button className={styles.upvoteButton} onClick={handleUpvoteButton}>
 						Up vote!

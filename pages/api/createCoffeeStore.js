@@ -32,7 +32,7 @@ const createCoffeeStore = async (req, res) => {
 						]);
 						const records = getMinifiedRecords(createdRecords);
 
-						res.json({ message: "create a record", records });
+						res.json({ message: "Create a record", records });
 					} else {
 						res.status(400);
 						res.json({ message: "Name is missing" });
@@ -48,7 +48,7 @@ const createCoffeeStore = async (req, res) => {
 			res.json({ message: "Error creating or finding a store", error });
 		}
 	} else {
-		res.json({ message: "method is GET" });
+		res.json({ message: "Method is GET" });
 	}
 };
 
