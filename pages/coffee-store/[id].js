@@ -8,6 +8,7 @@ import { fetchCoffeeStores } from "../../lib/coffee-stores";
 import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../store/store-context";
 import { isEmpty } from "../../utils";
+import useSWR from "swr";
 
 export async function getStaticProps(context) {
 	const coffeeStores = await fetchCoffeeStores();
@@ -41,6 +42,12 @@ const CoffeeStore = (props) => {
 	const {
 		state: { coffeeStores },
 	} = useContext(StoreContext);
+	const fetcher = (url) => fetch(url).then((res) => res.json());
+	const { data, error } = useSWR(
+		`${process.env.NEXT_PUBLIC_BASE_URL}/api/getCoffeeStoreById?id=${id}`,
+		fetcher
+	);
+	console.log(data);
 
 	const handleCreateCoffeeStore = async (coffeeStore) => {
 		try {
@@ -84,6 +91,13 @@ const CoffeeStore = (props) => {
 		}
 	}, [id]);
 
+	useEffect(() => {
+		if (data && data.length > 0) {
+			console.log("data from SWR >> ", data);
+			setCoffeeStore(data[0]);
+		}
+	}, [data]);
+
 	const handleUpvoteButton = () => {
 		console.log("handle upvote");
 		setVotingCount((count) => count + 1);
@@ -91,6 +105,10 @@ const CoffeeStore = (props) => {
 
 	if (router.isFallback) {
 		return <div>Loading...</div>;
+	}
+
+	if (error) {
+		return <div>Something went wrong retrieving coffee store page</div>;
 	}
 
 	return (
