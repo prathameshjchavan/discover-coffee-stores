@@ -47,7 +47,6 @@ const CoffeeStore = (props) => {
 		`${process.env.NEXT_PUBLIC_BASE_URL}/api/getCoffeeStoreById?id=${id}`,
 		fetcher
 	);
-	console.log(data);
 
 	const handleCreateCoffeeStore = async (coffeeStore) => {
 		try {
@@ -95,6 +94,7 @@ const CoffeeStore = (props) => {
 		if (data && data.length > 0) {
 			console.log("data from SWR >> ", data);
 			setCoffeeStore(data[0]);
+			setVotingCount(data[0].voting);
 		}
 	}, [data]);
 
@@ -146,10 +146,11 @@ const CoffeeStore = (props) => {
 							alt="address"
 						/>
 						<p className={styles.text}>
-							{coffeeStore?.location?.formatted_address}
+							{coffeeStore?.address || coffeeStore?.location?.formatted_address}
 						</p>
 					</div>
-					{(coffeeStore?.location?.neighborhood ||
+					{(coffeeStore?.neighbourhood ||
+						coffeeStore?.location?.neighborhood ||
 						coffeeStore?.location?.cross_street) && (
 						<div className={styles.iconWrapper}>
 							<Image
@@ -159,7 +160,8 @@ const CoffeeStore = (props) => {
 								alt="near me"
 							/>
 							<p className={styles.text}>
-								{coffeeStore?.location?.neighborhood ||
+								{coffeeStore?.neighbourhood ||
+									coffeeStore?.location?.neighborhood ||
 									coffeeStore?.location?.cross_street}
 							</p>
 						</div>
