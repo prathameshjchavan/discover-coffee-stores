@@ -98,9 +98,26 @@ const CoffeeStore = (props) => {
 		}
 	}, [data]);
 
-	const handleUpvoteButton = () => {
-		console.log("handle upvote");
-		setVotingCount((count) => count + 1);
+	const handleUpvoteButton = async () => {
+		try {
+			const { id } = coffeeStore;
+			const response = await fetch("/api/favoriteCoffeeStoreById", {
+				method: "PUT",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({
+					id,
+				}),
+			});
+			const dbCoffeeStore = await response.json();
+			console.log({ dbCoffeeStore });
+			if (dbCoffeeStore && dbCoffeeStore.length > 0) {
+				setVotingCount((count) => count + 1);
+			}
+		} catch (error) {
+			console.error("Error upvoting coffee store", err);
+		}
 	};
 
 	if (router.isFallback) {
