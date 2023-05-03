@@ -38,7 +38,7 @@ const CoffeeStore = (props) => {
 	const router = useRouter();
 	const id = router.query.id;
 	const [coffeeStore, setCoffeeStore] = useState(props.coffeeStore);
-	const [votingCount, setVotingCount] = useState(1);
+	const [votingCount, setVotingCount] = useState(0);
 	const {
 		state: { coffeeStores },
 	} = useContext(StoreContext);
@@ -67,9 +67,8 @@ const CoffeeStore = (props) => {
 				}),
 			});
 			const dbCoffeeStore = await response.json();
-			console.log({ dbCoffeeStore });
 		} catch (error) {
-			console.error("Error creating coffee store", err);
+			console.error("Error creating coffee store", error);
 		}
 	};
 
@@ -92,7 +91,6 @@ const CoffeeStore = (props) => {
 
 	useEffect(() => {
 		if (data && data.length > 0) {
-			console.log("data from SWR >> ", data);
 			setCoffeeStore(data[0]);
 			setVotingCount(data[0].voting);
 		}
@@ -111,12 +109,11 @@ const CoffeeStore = (props) => {
 				}),
 			});
 			const dbCoffeeStore = await response.json();
-			console.log({ dbCoffeeStore });
 			if (dbCoffeeStore && dbCoffeeStore.length > 0) {
 				setVotingCount((count) => count + 1);
 			}
 		} catch (error) {
-			console.error("Error upvoting coffee store", err);
+			console.error("Error upvoting coffee store", error);
 		}
 	};
 
